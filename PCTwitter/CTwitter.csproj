@@ -60,9 +60,6 @@
     <Compile Include="TwitterHelper.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
     <EmbeddedResource Include="VerificationInput.resx">
       <DependentUpon>VerificationInput.cs</DependentUpon>
       <SubType>Designer</SubType>

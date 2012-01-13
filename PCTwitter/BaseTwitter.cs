@@ -38,7 +38,7 @@
       if (twttrAccessToken == null) {
         // we need to auth.
         OAuthCredentials accessToken = TwitterHelper.PerformOAuth(CONSUMER_KEY, CONSUMER_SECRET);
-        consoleWrite("^8OAuth Successful. Please configure plugin with the following values, and reactivate: ");
+        consoleWrite("^8OAuth Successful. Please copy and paste the following values into the plugin configuration, and reactivate: ");
         consoleWrite("Access Token: " + accessToken.Token);
         consoleWrite("Access Token Secret: " + accessToken.Secret);
         consoleWrite("Please keep the token secret safe. You can unauthorize this application at any time from your Twitter account settings.");
@@ -57,7 +57,8 @@
 
     #region Events
     public override void OnLevelLoaded(string mapFileName, string Gamemode, int roundsPlayed, int roundsTotal) {
-      TwitterHelper.Tweet(twttrService, "Changing map! " + mapFileName);
+      CMap map = this.GetMapByFilename(mapFileName);
+      TwitterHelper.Tweet(twttrService, "Changing map! New Map: " + map.PublicLevelName);
     }
     #endregion
 
